@@ -1,0 +1,22 @@
+[
+  {
+    "name": "hello",
+    "trans": ["int. 你好；喂"]
+  },
+  {
+    "name": "world",
+    "trans": ["n. 世界；领域"]
+  },
+  {
+    "name": "keyboard",
+    "trans": ["n. 键盘"]
+  },
+  {
+    "name": "practice",
+    "trans": ["n. 练习", "v. 练习；实践"]
+  },
+  {
+    "name": "harmony",
+    "trans": ["n. 和谐；鸿蒙（品牌语境）"]
+  }
+]
