@@ -3,7 +3,7 @@
 import { webview } from '@kit.ArkWeb';
 import { BusinessError, pasteboard, deviceInfo } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
-import { abilityAccessCtrl, common, ConfigurationConstant, Permissions, Want } from '@kit.AbilityKit';
+import { common, ConfigurationConstant, Want } from '@kit.AbilityKit';
 import { DownloadConfirmDialog } from '../component/DownloadConfirmDialog'
 import { IAbstractDownloadHandler } from '../delegate/IWebDownloadFile'
 import { WebDownloadFileHelper } from '../delegate/WebDownloadFileImpl'
@@ -920,17 +920,6 @@ struct WebComponent {
             }
           })
         .onControllerAttached(() => {
-          const permissions: Array<Permissions> = ['ohos.permission.CAMERA', 'ohos.permission.MICROPHONE'];
-          try {
-            abilityAccessCtrl.createAtManager().requestPermissionsFromUser(this.getUIContext().getHostContext() as common.UIAbilityContext, permissions).then((data) => {
-              console.info('权限申请结果:', JSON.stringify(data));
-            }).catch((err: BusinessError) => {
-              console.error('申请权限失败:', JSON.stringify(err));
-            });
-          } catch (error) {
-            console.error('捕获到申请权限异常:', JSON.stringify(error));
-          }
-
           // 先设置 UA 再加载页面，避免先加载后 refresh 导致白屏
           this.initializeWebPage();
           this.webDownloadFile.setAppContext(this.context)
