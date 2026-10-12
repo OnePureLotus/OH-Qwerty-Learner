@@ -44,6 +44,7 @@ Copy-Item -Path (Join-Path $OverlayDir "src\*") -Destination (Join-Path $CloneDi
 if (Test-Path (Join-Path $OverlayDir "vite.config.ts")) {
     Copy-Item -Path (Join-Path $OverlayDir "vite.config.ts") -Destination (Join-Path $CloneDir "vite.config.ts") -Force
 }
+Copy-Item -Path $versionJsonPath -Destination (Join-Path $CloneDir "oh-app-version.json") -Force
 
 Push-Location $CloneDir
 try {
@@ -52,6 +53,7 @@ try {
     }
     $env:CI = "false"
     $env:REACT_APP_ARKWEB = "true"
+    $env:OH_APP_VERSION = $appVersion
     npm run build
     if ($LASTEXITCODE -ne 0) { throw "vite build failed" }
 } finally {

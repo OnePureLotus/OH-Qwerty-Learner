@@ -10,14 +10,25 @@ import { defineConfig } from 'vite'
 import type { PluginOption } from 'vite'
 
 function readAppVersion(): string {
-  const versionFile = path.resolve(__dirname, '..', 'oh-app-version.json')
-  try {
-    const raw = readFileSync(versionFile, 'utf-8')
-    const parsed = JSON.parse(raw) as { version?: string }
-    return parsed.version ?? '1.0'
-  } catch {
-    return '1.0'
+  if (process.env.OH_APP_VERSION) {
+    return process.env.OH_APP_VERSION
   }
+  const candidates = [
+    path.resolve(__dirname, 'oh-app-version.json'),
+    path.resolve(__dirname, '..', 'oh-app-version.json'),
+  ]
+  for (const versionFile of candidates) {
+    try {
+      const raw = readFileSync(versionFile, 'utf-8')
+      const parsed = JSON.parse(raw) as { version?: string }
+      if (parsed.version) {
+        return parsed.version
+      }
+    } catch {
+      // try next path
+    }
+  }
+  return '1.0'
 }
 
 // https://vitejs.dev/config/
