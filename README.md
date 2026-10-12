@@ -17,7 +17,6 @@
   <a href="https://github.com/OnePureLotus/OH-Qwerty-Learner"><img src="https://img.shields.io/badge/Platform-HarmonyOS-blue" alt="HarmonyOS" /></a>
   <a href="https://github.com/OnePureLotus/OH-Qwerty-Learner"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" /></a>
   <a href="https://github.com/RealKai42/qwerty-learner"><img src="https://img.shields.io/badge/Powered%20by-React-61dafb" alt="React" /></a>
-  <a href="https://github.com/RealKai42/qwerty-learner"><img src="https://img.shields.io/github/stars/RealKai42/qwerty-learner?style=social" alt="Upstream stars" /></a>
 </p>
 
 <p align="center">
@@ -27,12 +26,6 @@
   ·
   <a href="https://github.com/OnePureLotus/OH-Qwerty-Learner/issues">反馈 Issue</a>
 </p>
-
-<div align="center">
-  <a href="https://trendshift.io/repositories/3239" target="_blank">
-    <img src="https://trendshift.io/api/badge/repositories/3239" alt="RealKai42/qwerty-learner on Trendshift" width="250" height="55" />
-  </a>
-</div>
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/RealKai42/qwerty-learner/master/docs/Screenshot.png" alt="OH QwertyLearner 界面预览（与上游 Web 版一致）" />
@@ -148,17 +141,6 @@ powershell -ExecutionPolicy Bypass -File scripts\bundle-qwerty-learner-local.ps1
 
 <br />
 
-## 🏆 荣誉（上游项目）
-
-- Github 全球趋势榜上榜项目
-- V2EX 全站热搜项目
-- Gitee 全站推荐项目
-- [少数派首页推荐](https://sspai.com/post/67535)
-- GitCode 开源摘星计划 · [G-Star 计划](https://gitcode.com/g-star)
-- Gitee 最有价值开源项目 · [GVP](https://gitee.com/gvp)
-
-<br />
-
 ## 📕 词库列表
 
 - CET-4 · CET-6 · GMAT · GRE · IELTS · SAT · TOEFL
@@ -229,9 +211,3 @@ powershell -ExecutionPolicy Bypass -File scripts\bundle-qwerty-learner-local.ps1
 ### 项目 Icon
 
 感谢 [libregd](https://github.com/libregd) 及项目早期支持者（详见[上游 README](https://github.com/RealKai42/qwerty-learner#-大感谢)）。
-
-<br />
-
-## 🌟 Stargazers（上游）
-
-[![Stargazers over time](https://starchart.cc/RealKai42/qwerty-learner.svg)](https://starchart.cc/RealKai42/qwerty-learner)
