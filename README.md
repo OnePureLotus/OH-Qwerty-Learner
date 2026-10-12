@@ -1,5 +1,5 @@
 > **App branch**: `app/qwerty-learner-local`
-> - **Display name**: Qwerty Learner
+> - **Display name**: OH QwertyLearner
 > - **Bundle name**: `com.arkwebapp.qwertylearner`
 > - **Default URL**: `https://local.qwerty.arkweb/index.html`（虚拟 HTTPS + `onInterceptRequest` 映射到 `rawfile/qwerty-learner/`，避免 ES module 跨域白屏）
 > - **Description**: HarmonyOS ArkWeb app with bundled Qwerty Learner web UI and dictionaries (not the hosted qwerty.kaiyi.cool site). Supports **local custom wordbooks** (JSON import + word management, no login/backend).
@@ -10,7 +10,7 @@
 
 基于 ArkWeb 的 H5 嵌入式鸿蒙应用模板。即使零基础，也可通过修改配置与网页地址，快速构建自己的鸿蒙应用。
 
-**当前分支示例**：应用名「Qwerty Learner」，包名 `com.arkwebapp.qwertylearner`，加载本地 `rawfile/qwerty-learner/`（由 `scripts/bundle-qwerty-learner-local.ps1` 从上游仓库构建同步）。
+**当前分支示例**：应用名「OH QwertyLearner」，包名 `com.arkwebapp.qwertylearner`，加载本地 `rawfile/qwerty-learner/`（由 `scripts/bundle-qwerty-learner-local.ps1` 从上游仓库构建同步）。**请在本机使用无空格目录** `OH-Qwerty-Learner` **进行编译与提交**（见 `DEVELOPMENT.md`）。
 
 **与 `app/qwerty-learner` 的区别**：`app/qwerty-learner` 加载线上 `https://qwerty.kaiyi.cool/`；本分支内置上游 Vite 构建产物（词库、`dicts/`、音效等均在包内），无需依赖该站点即可练习。
 

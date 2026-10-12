@@ -136,10 +136,7 @@ export const isShowSkipAtom = atom(false)
 export const isInDevModeAtom = atom(false)
 
 export const infoPanelStateAtom = atom<InfoPanelState>({
-  donate: false,
-  vsc: false,
   community: false,
-  redBook: false,
 })
 
 export const wordDictationConfigAtom = atomForConfig('wordDictationConfig', {

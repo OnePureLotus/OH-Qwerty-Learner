@@ -7,7 +7,7 @@ import { webview } from '@kit.ArkWeb';
 import { image } from '@kit.ImageKit';
 
 const DOMAIN = 0x0000;
-const APP_TITLE = 'Qwerty Learner';
+const APP_TITLE = 'OH QwertyLearner';
 
 export default class EntryAbility extends UIAbility {
   private configure2in1Window(windowClass: window.Window): void {

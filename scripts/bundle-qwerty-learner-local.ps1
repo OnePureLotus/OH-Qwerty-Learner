@@ -25,6 +25,20 @@ $commit = (git -C $CloneDir rev-parse --short HEAD).Trim()
 Set-Content -Path (Join-Path $ScriptDir "SOURCE_COMMIT") -Value $commit -NoNewline
 Write-Host "Upstream commit: $commit"
 
+$versionJsonPath = Join-Path $ScriptDir "oh-app-version.json"
+$versionMeta = Get-Content $versionJsonPath -Raw | ConvertFrom-Json
+$appVersion = [string]$versionMeta.version
+$versionCode = [int]$versionMeta.versionCode
+Write-Host "App version: $appVersion (versionCode $versionCode)"
+
+$appJson5Path = Join-Path $ProjectRoot "AppScope\app.json5"
+if (Test-Path $appJson5Path) {
+    $appJson = Get-Content $appJson5Path -Raw
+    $appJson = $appJson -replace '"versionCode"\s*:\s*\d+', "`"versionCode`": $versionCode"
+    $appJson = $appJson -replace '"versionName"\s*:\s*"[^"]*"', "`"versionName`": `"$appVersion`""
+    Set-Content -Path $appJson5Path -Value $appJson -NoNewline
+}
+
 Write-Host "Applying ArkWeb overlays ..."
 Copy-Item -Path (Join-Path $OverlayDir "src\*") -Destination (Join-Path $CloneDir "src") -Recurse -Force
 if (Test-Path (Join-Path $OverlayDir "vite.config.ts")) {
@@ -54,5 +68,12 @@ if (Test-Path $RawfileDest) {
 }
 New-Item -ItemType Directory -Force -Path $RawfileDest | Out-Null
 Copy-Item -Path (Join-Path $BuildOut "*") -Destination $RawfileDest -Recurse -Force
+
+$indexHtml = Join-Path $RawfileDest "index.html"
+if (Test-Path $indexHtml) {
+    $html = Get-Content $indexHtml -Raw -Encoding UTF8
+    $html = $html -replace 'Qwerty Learner', 'OH QwertyLearner'
+    Set-Content -Path $indexHtml -Value $html -Encoding UTF8 -NoNewline
+}
 
 Write-Host "Bundled to $RawfileDest ($commit)" -ForegroundColor Green
